@@ -6,6 +6,7 @@ import thunk from "redux-thunk";
 import reducer from "./reducers";
 import EventsIndex from "./components/events_index";
 import EventsNew from "./components/events_new";
+import EventsShow from "./components/events_show";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
@@ -20,7 +21,9 @@ ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
       <Switch>
-        <Route exact path="/events/new" component={ EventsNew } />
+        <Route path="/events/new" component={EventsNew} />
+        <Route path="/events/:id" component={EventsShow} />
+        <Route path="/events" component={EventsIndex} />
         <Route exact path="/" component={EventsIndex} />
       </Switch>
     </BrowserRouter>
